@@ -1,0 +1,22 @@
+server:
+  port: 8010
+
+spring:
+  application:
+    name: albums-application
+
+  security:
+    oauth2:
+      client:
+        registration:
+          photoappclient:
+            provider: keycloak
+            client-id: photo-app-for-code-flow-client
+            client-secret: jN5kcVWKXUY5tAsWbkWTlhe3zKGUI9Xk
+            scope: openid,profile,roles
+            authorization-grant-type: authorization_code
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8180/realms/appsdeveloperblog
+
+

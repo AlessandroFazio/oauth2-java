@@ -1,0 +1,23 @@
+server:
+  port: 8015
+
+spring:
+  application:
+    name: orders-web-oauth-client
+  security:
+    oauth2:
+      client:
+        registration:
+          users-click-client-oidc:
+            authorization-grant-type: authorization_code
+            client-id: client1
+            client-secret: ClientSecretValue
+            scope:
+              - openid
+              - profile
+            redirect-uri: "http://127.0.0.1:8015/login/oauth2/code/users-click-client-oidc"
+        provider:
+          users-click-client-oidc:
+            issuer-uri: "http://auth-server:8000"
+          # user-info-uri: "http://auth-server:8000/userinfo"
+

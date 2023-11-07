@@ -1,0 +1,12 @@
+server:
+  port: 8095
+
+spring:
+  application:
+    name: orders-resource-server
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://localhost:8000"
+

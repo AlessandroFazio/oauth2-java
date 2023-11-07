@@ -1,0 +1,55 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:8012"
+            allowedHeaders:
+              - Authorization
+            allowedMethods:
+              - GET
+              - POST
+        add-to-simple-url-handler-mapping: true
+      discovery:
+        locator:
+          lower-case-service-id: true
+          enabled: true
+      routes:
+        - id: users-status-check
+          uri: http://localhost:9000
+          predicates:
+            - Path=/users/status/check
+            - Method=GET
+          filters:
+            - RemoveRequestHeader=Cookie
+
+        - id: albums
+          uri: http://localhost:9003
+          predicates:
+            - Path=/albums
+            - Method=GET
+          filters:
+            - RemoveRequestHeader=Cookie
+
+        - id: photos
+          uri: http://localhost:9004
+          predicates:
+            - Path=/photos
+            - Method=GET
+          filters:
+            - RemoveRequestHeader=Cookie
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9002/eureka
+
+
+

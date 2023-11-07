@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: keycloak-remote-storage-provider
+
+keycloakRemoteStorageProvider:
+  api:
+    usersService:
+      serviceUrl: "http://localhost:9010"
+
+

@@ -1,0 +1,30 @@
+server:
+  port: 8011
+
+spring:
+  application:
+    name: social-login-web-client-app
+  security:
+    oauth2:
+      client:
+        registration:
+          facebook:
+            client-id: 696386915534245
+            client-secret: cd45bad459feb79c0fc5ebec0d293d5b
+            scope:
+              - email
+              - public_profile
+          #google:
+          #  client-id: 749133607364-4qi250neau4d5i9f4prmlirae73c03v3.apps.googleusercontent.com
+          #  client-secret: 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
+          # okta:
+          #  client-id: 0oacx02plcuXwizv15d7
+          #  client-secret: mt7keSCW4AgNary_-ZMuSHZB8hHgm1IUkduCGZhLcHcDUWwj2vgbxW8xl3oYDStI
+          #  scope:
+          #    - openid
+          #    - profile
+        # provider:
+        #   okta:
+        #     issuer-uri: https://dev-01226634.okta.com/oauth2/default
+
+

@@ -1,0 +1,17 @@
+server:
+  port: 9003
+
+spring:
+  application:
+    name: albums-resource-server
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # issuer-uri: http://localhost:8180/realms/appsdeveloperblog
+          jwk-set-uri: http://localhost:8180/realms/appsdeveloperblog/protocol/openid-connect/certs
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9002/eureka
